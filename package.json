@@ -4,7 +4,7 @@
   "description": "A NodeJS implementation of Tic Tac Toe",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "mocha tests/**/*.test.js"
   },
   "repository": {
     "type": "git",
