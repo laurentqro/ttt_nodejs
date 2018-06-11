@@ -1,0 +1,19 @@
+{
+  "name": "ttt_nodejs",
+  "version": "1.0.0",
+  "description": "A NodeJS implementation of Tic Tac Toe",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laurentqro/ttt_nodejs.git"
+  },
+  "author": "Laurent Curau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/laurentqro/ttt_nodejs/issues"
+  },
+  "homepage": "https://github.com/laurentqro/ttt_nodejs#readme"
+}
