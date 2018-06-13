@@ -14,46 +14,38 @@ it('marks a position', () => {
   expect(board.getCellAtPosition(1).getSymbol()).to.equal('X');
 });
 
-it('identifies no win', () => {
+it('identifies new board has no win', () => {
   var board = new Board();
-
-  board.markCellAtPosition(1, 'X');
-  board.markCellAtPosition(2, 'X');
-  board.markCellAtPosition(6, 'X');
-  board.markCellAtPosition(7, 'X');
-  board.markCellAtPosition(9, 'X');
-
-  board.markCellAtPosition(3, 'O');
-  board.markCellAtPosition(4, 'O');
-  board.markCellAtPosition(5, 'O');
-  board.markCellAtPosition(8, 'O');
-
   expect(board.hasWin()).to.equal(false);
 });
 
-it('identifies a win', () => {
+it('identifies new board has no tie', () => {
   var board = new Board();
+  expect(board.hasTie()).to.equal(false);
+});
 
-  board.markCellAtPosition(1, 'X');
-  board.markCellAtPosition(2, 'X');
-  board.markCellAtPosition(3, 'X');
+it('identifies a win', () => {
+  var board = createBoardWithMoves("X", "X", "X",
+                                    4,   5,   6,
+                                    7,   8,   9);
 
   expect(board.hasWin()).to.equal(true);
 });
 
 it('identifies a tie', () => {
-  var board = new Board();
-
-  board.markCellAtPosition(1, 'X');
-  board.markCellAtPosition(2, 'X');
-  board.markCellAtPosition(6, 'X');
-  board.markCellAtPosition(7, 'X');
-  board.markCellAtPosition(9, 'X');
-
-  board.markCellAtPosition(3, 'O');
-  board.markCellAtPosition(4, 'O');
-  board.markCellAtPosition(5, 'O');
-  board.markCellAtPosition(8, 'O');
+  var board = createBoardWithMoves("X", "X", "O",
+                                   "O", "O", "X",
+                                   "X", "O", "X");
 
   expect(board.hasTie()).to.equal(true);
 });
+
+function createBoardWithMoves(...moves) {
+  var board = new Board();
+
+  for (let move of moves.entries()) {
+    board.markCellAtPosition(move[0] + 1, move[1]);
+  }
+
+  return board;
+}
