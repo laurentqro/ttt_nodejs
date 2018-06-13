@@ -1,4 +1,4 @@
-var Player = require('../lib/player.js');
+const Player = require('../lib/player.js');
 
 module.exports = class PlayerStub extends Player {
   constructor(symbol) {

@@ -4,13 +4,13 @@ const Game = require('../lib/game.js');
 const Board = require('../lib/board.js');
 
 it('is not over at start', () => {
-  var game = new Game();
+  let game = new Game();
   expect(game.isOver()).to.equal(false);
 });
 
 it('is over when there is a winner', () => {
-  var game = new Game();
-  var board = createBoardWithMoves("X", "X", "X",
+  let game = new Game();
+  let board = createBoardWithMoves("X", "X", "X",
                                     4,   5,   6,
                                     7,   8,   9);
   game.board = board;
@@ -19,8 +19,8 @@ it('is over when there is a winner', () => {
 });
 
 it('is over when there is a tie', () => {
-  var game = new Game();
-  var board = createBoardWithMoves("X", "X", "O",
+  let game = new Game();
+  let board = createBoardWithMoves("X", "X", "O",
                                    "O", "O", "X",
                                    "X", "O", "X");
   game.board = board;
@@ -29,9 +29,9 @@ it('is over when there is a tie', () => {
 });
 
 it('marks the board', async () => {
-  var playerStubX = new PlayerStub("X");
-  var playerStubO = new PlayerStub("O");
-  var game = new Game(playerStubX, playerStubO);
+  let playerStubX = new PlayerStub("X");
+  let playerStubO = new PlayerStub("O");
+  let game = new Game(playerStubX, playerStubO);
 
   playerStubX.moves = [1];
 
@@ -43,7 +43,7 @@ it('marks the board', async () => {
 });
 
 function createBoardWithMoves(...moves) {
-  var board = new Board();
+  let board = new Board();
 
   for (let move of moves.entries()) {
     board.markCellAtPosition(move[0] + 1, move[1]);

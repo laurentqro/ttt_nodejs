@@ -3,7 +3,7 @@ const Line = require('../lib/line.js');
 const Cell = require('../lib/cell.js');
 
 it('identifies a win', () => {
-  var line = new Line(new Cell(1), new Cell(2), new Cell(3));
+  let line = new Line(new Cell(1), new Cell(2), new Cell(3));
 
   line.cells.forEach((cell) => {
     cell.markWithSymbol('X');
