@@ -21,6 +21,7 @@
     "mocha": "^5.2.0"
   },
   "dependencies": {
+    "figlet": "^1.2.0",
     "inquirer": "^6.0.0"
   }
 }
