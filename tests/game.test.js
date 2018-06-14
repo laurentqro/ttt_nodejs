@@ -33,12 +33,10 @@ it('marks the board', async () => {
                                    'O', 'O', 'X',
                                    'X', 'O', 'X');
 
-  let playerStubX = new PlayerStub('X');
+  let playerStubX = new PlayerStub('X', [1]);
   let playerStubO = new PlayerStub('O');
 
   let game = new Game(board, playerStubX, playerStubO);
-
-  playerStubX.moves = [1];
 
   game.playerX = playerStubX;
   game.playerO = playerStubO;
