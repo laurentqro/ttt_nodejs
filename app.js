@@ -11,6 +11,6 @@ const cli = new Cli(board);
 const playerX = new Player("X", cli);
 const playerO = new Player("O", cli);
 
-const game = new Game(board, playerX, playerO);
+const game = new Game(board, playerX, playerO, cli);
 
 game.play();
