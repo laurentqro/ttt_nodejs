@@ -5,33 +5,38 @@ const Board = require('../lib/board.js');
 
 it('is not over at start', () => {
   let game = new Game();
+
   expect(game.isOver()).to.equal(false);
 });
 
 it('is over when there is a winner', () => {
-  let game = new Game();
-  let board = createBoardWithMoves("X", "X", "X",
+  let board = createBoardWithMoves('X', 'X', 'X',
                                     4,   5,   6,
                                     7,   8,   9);
-  game.board = board;
+
+  let game = new Game(board);
 
   expect(game.isOver()).to.equal(true);
 });
 
 it('is over when there is a tie', () => {
-  let game = new Game();
-  let board = createBoardWithMoves("X", "X", "O",
-                                   "O", "O", "X",
-                                   "X", "O", "X");
-  game.board = board;
+  let board = createBoardWithMoves('X', 'X', 'O',
+                                   'O', 'O', 'X',
+                                   'X', 'O', 'X');
+  let game = new Game(board);
 
   expect(game.isOver()).to.equal(true);
 });
 
 it('marks the board', async () => {
-  let playerStubX = new PlayerStub("X");
-  let playerStubO = new PlayerStub("O");
-  let game = new Game(playerStubX, playerStubO);
+  let board = createBoardWithMoves( 1,  'X', 'O',
+                                   'O', 'O', 'X',
+                                   'X', 'O', 'X');
+
+  let playerStubX = new PlayerStub('X');
+  let playerStubO = new PlayerStub('O');
+
+  let game = new Game(board, playerStubX, playerStubO);
 
   playerStubX.moves = [1];
 
@@ -39,6 +44,7 @@ it('marks the board', async () => {
   game.playerO = playerStubO;
 
   await game.playTurn();
+
   expect(game.board.getCellAtPosition(1).isTaken()).to.equal(true);
 });
 
