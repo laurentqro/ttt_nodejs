@@ -25,19 +25,29 @@ it('identifies new board has no tie', () => {
 });
 
 it('identifies a win', () => {
-  let board = createBoardWithMoves("X", "X", "X",
-                                    4,   5,   6,
-                                    7,   8,   9);
+  let board = createBoardWithMoves('X', 'X', 'X',
+                                    null,   null,   null,
+                                    null,   null,   null);
 
   expect(board.hasWin()).to.equal(true);
 });
 
 it('identifies a tie', () => {
-  let board = createBoardWithMoves("X", "X", "O",
-                                   "O", "O", "X",
-                                   "X", "O", "X");
+  let board = createBoardWithMoves('X', 'X', 'O',
+                                   'O', 'O', 'X',
+                                   'X', 'O', 'X');
 
   expect(board.hasTie()).to.equal(true);
+});
+
+it('gives available moves', () => {
+  let board = createBoardWithMoves('X', 'X', 'O',
+                                   'O', 'O', 'X',
+                                   'X', 'O',  null);
+
+  let expected = [9];
+
+  expect(board.availableMoves().toString()).to.equal(expected.toString());
 });
 
 function createBoardWithMoves(...moves) {
