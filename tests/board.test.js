@@ -11,7 +11,7 @@ it('marks a position', () => {
   board.markCellAtPosition(1, 'X');
 
   expect(board.isEmpty()).to.equal(false);
-  expect(board.getCellAtPosition(1).getSymbol()).to.equal('X');
+  expect(board.cellAtPosition(1).symbol).to.equal('X');
 });
 
 it('identifies new board has no win', () => {

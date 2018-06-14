@@ -45,7 +45,7 @@ it('marks the board', async () => {
 
   await game.playTurn();
 
-  expect(game.board.getCellAtPosition(1).isTaken()).to.equal(true);
+  expect(game.board.cellAtPosition(1).isTaken()).to.equal(true);
 });
 
 function createBoardWithMoves(...moves) {
