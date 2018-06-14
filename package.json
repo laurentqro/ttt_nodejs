@@ -2,9 +2,9 @@
   "name": "ttt_nodejs",
   "version": "1.0.0",
   "description": "A NodeJS implementation of Tic Tac Toe",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "npm test"
+    "test": "mocha tests/**/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/laurentqro/ttt_nodejs/issues"
   },
-  "homepage": "https://github.com/laurentqro/ttt_nodejs#readme"
+  "homepage": "https://github.com/laurentqro/ttt_nodejs#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "figlet": "^1.2.0",
+    "inquirer": "^6.0.0"
+  }
 }
